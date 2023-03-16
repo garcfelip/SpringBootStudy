@@ -16,9 +16,8 @@ public class AnimeService {
         animes = new ArrayList<>(List.of(new Anime(1L, "Dragon"), new Anime(2L, "Berserk")));
     }
 
-    public List<Anime> listAll(){
-        return animes;
-    }
+    public List<Anime> listAll() {
+        return animes; }
 
     public Anime findById(long id){
         return animes.stream()
@@ -35,5 +34,10 @@ public class AnimeService {
 
     public void delete(long id) {
         animes.remove(findById(id));
+    }
+
+    public void replace(Anime anime) {
+        delete(anime.getId());
+        animes.add(anime);
     }
 }
